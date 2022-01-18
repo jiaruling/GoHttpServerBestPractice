@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/go-playground/validator/v10"
 )
 
 /*
@@ -22,6 +24,9 @@ var (
 	LogPath   []string
 	Mux       *MyMux
 	Server    *http.Server
+	Validate  *validator.Validate
+	Expires   time.Duration
+	ETicker   *time.Ticker
 )
 
 // 初始化全局变量
@@ -34,4 +39,7 @@ func init() {
 		ReadTimeout:  3 * time.Second, // 读超时时间
 		WriteTimeout: 3 * time.Second, // 写超时时间
 	}
+	Validate = validator.New()
+	Expires = 10 // 10s
+	ETicker = time.NewTicker(Expires * time.Second)
 }
