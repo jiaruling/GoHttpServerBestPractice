@@ -61,6 +61,17 @@ $ git rm --f log/*         // 删除log文件夹下所有文件的跟踪，并�
 $ git push origin --delete [branchName]
 ```
 
+### MySQL
+
+```SQL
+# 链接数据库
+>>> mysql -h 127.0.0.1 -uroot -pabc123456  # mysql -h 127.0.0.1 -uroot -pabc123456 -A
+# 显示表结构
+>>> desc user;
+# 显示创建表语句
+>>> show create table user;
+```
+
 
 
 ## 二、技术选型
