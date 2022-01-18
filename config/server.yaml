@@ -1,0 +1,11 @@
+name: "go http 标准库最佳实践"
+env: "dev"
+runMode: "debug"
+mysql:
+  user: "root"
+  password: "abc123456"
+  ip: "192.168.0.142"
+  port: 3306
+  db: "db1"
+  parameter: "charset=utf8mb4&parseTime=True&loc=Local"
+  dbaccount: "tt_0131?"

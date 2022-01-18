@@ -1,0 +1,9 @@
+FROM alpine:3.13.6
+
+WORKDIR /app
+run mkdir static \
+    && cd static \
+    && mkdir scratch
+COPY . .
+EXPOSE 8080
+CMD ["./gm299-web"]
