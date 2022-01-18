@@ -18,6 +18,7 @@ var (
 	Config    ServerConfig
 	AccessLog *log.Logger
 	SqlLog    *log.Logger
+	TaskLog   *log.Logger
 	LogPath   []string
 	Mux       *MyMux
 	Server    *http.Server
@@ -25,7 +26,7 @@ var (
 
 // 初始化全局变量
 func init() {
-	LogPath = []string{"./log/logs.log", "./log/access.log", "./log/sql.log"}
+	LogPath = []string{"./log/logs.log", "./log/access.log", "./log/sql.log", "./log/backend_task.log"}
 	Mux = NewMyMux()
 	Server = &http.Server{
 		Addr:         ":8080",

@@ -28,10 +28,24 @@ func InitLog(LogPath []string) {
 		case 0:
 			log.SetOutput(logFile)
 			log.SetFlags(log.Llongfile | log.Lmicroseconds | log.Ldate)
+			log.Println("*****************************************************************************************")
+			log.Println("通用日志记录")
+			log.Println("*****************************************************************************************")
 		case 1:
 			global.AccessLog = log.New(logFile, "<Access>: ", log.Lshortfile|log.Ldate|log.Ltime)
+			global.AccessLog.Println("*****************************************************************************************")
+			global.AccessLog.Println("访问日志记录")
+			global.AccessLog.Println("*****************************************************************************************")
 		case 2:
 			global.SqlLog = log.New(logFile, "<SQL>: ", log.Lshortfile|log.Ldate|log.Ltime)
+			global.SqlLog.Println("*****************************************************************************************")
+			global.SqlLog.Println("SQL日志记录")
+			global.SqlLog.Println("*****************************************************************************************")
+		case 3:
+			global.TaskLog = log.New(logFile, "<Task>: ", log.Lshortfile|log.Ldate|log.Ltime)
+			global.TaskLog.Println("*****************************************************************************************")
+			global.TaskLog.Println("后台任务日志记录")
+			global.TaskLog.Println("*****************************************************************************************")
 		}
 	}
 }
