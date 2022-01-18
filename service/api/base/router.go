@@ -2,6 +2,7 @@ package base
 
 import (
 	"GoHttpServerBestPractice/global"
+	"GoHttpServerBestPractice/service/api/base/controller"
 	"GoHttpServerBestPractice/service/middleware"
 )
 
@@ -13,6 +14,6 @@ import (
 */
 
 func Router() {
-	global.Mux.HandleFunc("/health", healthHandler)              // 健康检查
-	global.Mux.HandleFunc("/test", middleware.Part(testHandler)) // 局部中间件测试
+	global.Mux.HandleFunc("/health", controller.HealthHandler)              // 健康检查
+	global.Mux.HandleFunc("/test", middleware.Part(controller.TestHandler)) // 局部中间件测试
 }

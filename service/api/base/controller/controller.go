@@ -1,4 +1,4 @@
-package base
+package controller
 
 import (
 	"GoHttpServerBestPractice/service/core"
@@ -12,12 +12,12 @@ import (
    创建时间: 2022/1/18 14:09
 */
 
-func healthHandler(w http.ResponseWriter, r *http.Request) {
+func HealthHandler(w http.ResponseWriter, r *http.Request) {
 	core.Handler200(w, nil)
 	return
 }
 
-func testHandler(w http.ResponseWriter, r *http.Request) {
+func TestHandler(w http.ResponseWriter, r *http.Request) {
 	core.Handler200(w, "test")
 	return
 }
