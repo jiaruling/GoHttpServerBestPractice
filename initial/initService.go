@@ -20,7 +20,6 @@ func InitService() {
 		}
 	}()
 	go func() {
-		http.Handle("/log", http.FileServer(http.Dir(global.LogFilePath)))
 		if err := http.ListenAndServe(":8000", http.FileServer(http.Dir(global.FILEPATH))); err != nil {
 			log.Fatalln("http静态资源服务启动失败: ", err.Error())
 		}
