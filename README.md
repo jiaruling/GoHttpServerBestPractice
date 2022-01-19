@@ -10,6 +10,8 @@
 # 初始化项目 go mod
 $ go mod init GoHttpServerBestPractice
 
+$ go mod tidy
+
 # golang 打包 【Windows 下编译 Mac 和 Linux 64位可执行程序】
 $ SET CGO_ENABLED=0
 $ SET GOOS=darwin
@@ -63,7 +65,7 @@ $ kill 26993 # $ kill PID
 
 # 应用在后台执行
 $ chmod 777 main
-$ nohup ./main > log.log 2>&1.sql &
+$ nohup ./main > log.log 2>&1 &
 ```
 
 ### Git
@@ -88,7 +90,7 @@ $ git push origin --delete [branchName]
 
 ```SQL
 # 链接数据库
->>> mysql -h 127.0.0.1.sql -uroot -pabc123456  # mysql -h 127.0.0.1.sql -uroot -pabc123456 -A
+>>> mysql -h 127.0.0.1 -uroot -pabc123456  # mysql -h 127.0.0.1 -uroot -pabc123456 -A
 # 显示表结构
 >>> desc user;
 # 显示创建表语句
@@ -126,7 +128,7 @@ create table role
     deleted_at int unsigned null comment '删除时间戳',
     name       varchar(32)  null comment '角色名',
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 1.sql
+  AUTO_INCREMENT = 1
   DEFAULT charset = utf8mb4
   comment ='角色';
 
@@ -139,9 +141,9 @@ create table user
     remark     text         null comment '备注',
     deleted_at int unsigned null comment '删除时间戳',
     name       varchar(64)  null comment '用户名',
-    role_id    text         null comment '角色ID: 1.sql,2,3'
+    role_id    text         null comment '角色ID: 1,2,3'
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 1.sql
+  AUTO_INCREMENT = 1
   DEFAULT charset = utf8mb4
   comment ='用户';
 ```
