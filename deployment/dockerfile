@@ -6,4 +6,4 @@ run mkdir static \
     && mkdir scratch
 COPY . .
 EXPOSE 8080
-CMD ["./gm299-web"]
+CMD ["./main"]
