@@ -44,11 +44,7 @@ func main() {
 	api.RegisterRouter()
 	//log.Println(global.Config)
 	log.Println("7. 启动http服务")
-	go func() {
-		if err = global.Server.ListenAndServe(); err != nil {
-			log.Fatalln("http服务启动失败: ", err.Error())
-		}
-	}()
+	initial.InitService()
 	log.Println("8. 启动后台定时任务")
 	backend_task.InitCelery()
 	log.Println("-------------------------------------------------------------------------------------------------")

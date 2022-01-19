@@ -12,4 +12,7 @@ const (
 	METHOD_GET    = "GET"
 	METHOD_PUT    = "PUT"
 	METHOD_DELETE = "DELETE"
+	FILEPATH      = "./static"
+	LogFilePath   = "./log"
+	MaxUploadSize = 5 * 1024 * 2014 // 5 MB
 )
