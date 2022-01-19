@@ -26,6 +26,7 @@ func main() {
 		quit chan os.Signal
 	)
 	// 初始化日志
+	initial.InitCreateDir()
 	initial.InitLog(global.LogPath)
 	log.Println("1. 初始化日志成功")
 	log.Println("2. 初始化线程数, 线程数量和cpu核数相等")
