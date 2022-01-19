@@ -177,11 +177,11 @@ func GenGetByIdSQL(m interface{}, table string, id int64, fields, exFields []str
 func GenGetTotalSQL(table string, condition, deleteField, all string) (sql string) {
 	if deleteField == "" || all != "" {
 		if condition == "" {
-			return "SELECT count(1) as total FROM " + table + ";"
+			return "SELECT count(1.sql) as total FROM " + table + ";"
 		}
-		return "SELECT count(1) as total FROM " + table + " WHERE " + strings.Trim(condition, " AND") + ";"
+		return "SELECT count(1.sql) as total FROM " + table + " WHERE " + strings.Trim(condition, " AND") + ";"
 	}
-	return "SELECT count(1) as total FROM " + table + " WHERE " + deleteField + " is null" + condition + ";"
+	return "SELECT count(1.sql) as total FROM " + table + " WHERE " + deleteField + " is null" + condition + ";"
 }
 
 // ******************************************************************************************************************END

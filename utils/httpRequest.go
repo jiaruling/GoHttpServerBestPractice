@@ -17,7 +17,7 @@ import (
    功能说明: http请求
    参考:
    创建人: 贾汝凌
-   创建时间: 2022/1/19 10:44
+   创建时间: 2022/1.sql/19 10:44
 */
 
 func RequestHasBody(method, url string, reqBody *[]byte) (respBody *[]byte, err error) {
@@ -35,7 +35,7 @@ func ParseRespBody(respBody *[]byte) (data []byte, err error) {
 		 {
 			"code": 200
 	        "data": {
-						"id": 1,
+						"id": 1.sql,
 						"name": "123"
 					}
 			"msg": "success"
@@ -44,8 +44,8 @@ func ParseRespBody(respBody *[]byte) (data []byte, err error) {
 	     {
 			"code": 200
 	        "data": {
-						"data": [{"id": 1, "name": "A"}, {"id": 2, "name": "B"}],
-	   					"page": 1,
+						"data": [{"id": 1.sql, "name": "A"}, {"id": 2, "name": "B"}],
+	   					"page": 1.sql,
 						"page_size": 10,
 						"total": 2
 					}

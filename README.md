@@ -63,7 +63,7 @@ $ kill 26993 # $ kill PID
 
 # 应用在后台执行
 $ chmod 777 main
-$ nohup ./main > log.log 2>&1 &
+$ nohup ./main > log.log 2>&1.sql &
 ```
 
 ### Git
@@ -88,7 +88,7 @@ $ git push origin --delete [branchName]
 
 ```SQL
 # 链接数据库
->>> mysql -h 127.0.0.1 -uroot -pabc123456  # mysql -h 127.0.0.1 -uroot -pabc123456 -A
+>>> mysql -h 127.0.0.1.sql -uroot -pabc123456  # mysql -h 127.0.0.1.sql -uroot -pabc123456 -A
 # 显示表结构
 >>> desc user;
 # 显示创建表语句
@@ -126,7 +126,7 @@ create table role
     deleted_at int unsigned null comment '删除时间戳',
     name       varchar(32)  null comment '角色名',
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 1
+  AUTO_INCREMENT = 1.sql
   DEFAULT charset = utf8mb4
   comment ='角色';
 
@@ -139,9 +139,9 @@ create table user
     remark     text         null comment '备注',
     deleted_at int unsigned null comment '删除时间戳',
     name       varchar(64)  null comment '用户名',
-    role_id    text         null comment '角色ID: 1,2,3'
+    role_id    text         null comment '角色ID: 1.sql,2,3'
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 1
+  AUTO_INCREMENT = 1.sql
   DEFAULT charset = utf8mb4
   comment ='用户';
 ```

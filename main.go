@@ -17,7 +17,7 @@ import (
    功能说明: 入口函数
    参考:
    创建人: 贾汝凌
-   创建时间: 2022/1/18 10:29
+   创建时间: 2022/1.sql/18 10:29
 */
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 	// 初始化日志
 	initial.InitCreateDir()
 	initial.InitLog(global.LogPath)
-	log.Println("1. 初始化日志成功")
+	log.Println("1.sql. 初始化日志成功")
 	log.Println("2. 初始化线程数, 线程数量和cpu核数相等")
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	log.Println("CPUNUM: ", runtime.NumCPU())

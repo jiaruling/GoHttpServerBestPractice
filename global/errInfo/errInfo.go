@@ -4,7 +4,7 @@ package errInfo
    功能说明: 错误提示信息
    参考:
    创建人: 贾汝凌
-   创建时间: 2022/1/19 13:45
+   创建时间: 2022/1.sql/19 13:45
 */
 
 type ErrInfo = string

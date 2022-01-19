@@ -6,7 +6,7 @@ import "GoHttpServerBestPractice/service/core"
    功能说明:
    参考:
    创建人: 贾汝凌
-   创建时间: 2022/1/18 17:16
+   创建时间: 2022/1.sql/18 17:16
 */
 type Student struct {
 	Id        int64  `json:"id,omitempty"`

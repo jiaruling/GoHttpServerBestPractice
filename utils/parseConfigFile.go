@@ -12,7 +12,7 @@ import (
    功能说明: 加载配置文件并进行监听
    参考:
    创建人: 贾汝凌
-   创建时间: 2022/1/18 10:41
+   创建时间: 2022/1.sql/18 10:41
 */
 
 func ParseConfig(path string, obj interface{}) (err error) {
