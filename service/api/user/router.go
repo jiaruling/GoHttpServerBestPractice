@@ -1,5 +1,10 @@
 package user
 
+import (
+	"GoHttpServerBestPractice/global"
+	"GoHttpServerBestPractice/service/api/user/controller"
+)
+
 /*
    功能说明:
    参考:
@@ -8,5 +13,5 @@ package user
 */
 
 func Router() {
-
+	global.Mux.HandleFunc("/stu", controller.StuHandler)
 }

@@ -15,9 +15,9 @@ import (
 
 func AccessLog(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		global.AccessLog.Printf("访问日志")
+		//global.AccessLog.Printf("访问日志")
 		defer func(start time.Time) {
-			global.AccessLog.Printf("%v, %v, %v, %v us", r.Method, r.URL.RequestURI(), r.RemoteAddr, time.Since(start).Microseconds())
+			global.AccessLog.Printf("%v, %v, %v, %v ms", r.Method, r.URL.RequestURI(), r.RemoteAddr, time.Since(start).Milliseconds())
 		}(time.Now())
 		handler.ServeHTTP(w, r)
 	})

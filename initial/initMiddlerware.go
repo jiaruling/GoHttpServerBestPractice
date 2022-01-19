@@ -1,6 +1,9 @@
-package middleware
+package initial
 
-import "GoHttpServerBestPractice/global"
+import (
+	"GoHttpServerBestPractice/global"
+	middleware2 "GoHttpServerBestPractice/service/middleware"
+)
 
 /*
    功能说明: 添加全局中间件
@@ -11,8 +14,8 @@ import "GoHttpServerBestPractice/global"
 
 func InitGlobalMiddleware() {
 	middleware := []global.Middleware{
-		AccessLog,
-		Cors,
+		middleware2.Cors,
+		middleware2.AccessLog,
 	}
 	global.Mux.Use(middleware...)
 }

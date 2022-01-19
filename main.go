@@ -2,9 +2,9 @@ package main
 
 import (
 	"GoHttpServerBestPractice/global"
+	"GoHttpServerBestPractice/initial"
 	"GoHttpServerBestPractice/service/api"
 	"GoHttpServerBestPractice/service/backend_task"
-	"GoHttpServerBestPractice/service/middleware"
 	"GoHttpServerBestPractice/utils"
 	"log"
 	"os"
@@ -25,10 +25,8 @@ func main() {
 		err  error
 		quit chan os.Signal
 	)
-	// 删除日志文件
-	utils.DeleteLogFile(global.LogPath)
 	// 初始化日志
-	utils.InitLog(global.LogPath)
+	initial.InitLog(global.LogPath)
 	log.Println("1. 初始化日志成功")
 	log.Println("2. 初始化线程数, 线程数量和cpu核数相等")
 	runtime.GOMAXPROCS(runtime.NumCPU())
@@ -39,9 +37,9 @@ func main() {
 		log.Fatalln("加载配置文件失败: ", err.Error())
 	}
 	log.Println("4. 连接数据库")
-
+	initial.InitDB()
 	log.Println("5. 多路复用器添加全局中间件")
-	middleware.InitGlobalMiddleware()
+	initial.InitGlobalMiddleware()
 	log.Println("6. 注册路由")
 	api.RegisterRouter()
 	//log.Println(global.Config)

@@ -7,4 +7,9 @@ package global
    创建时间: 2022/1/18 10:52
 */
 
-const ()
+const (
+	METHOD_POST   = "POST"
+	METHOD_GET    = "GET"
+	METHOD_PUT    = "PUT"
+	METHOD_DELETE = "DELETE"
+)

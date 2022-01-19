@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"GoHttpServerBestPractice/global"
 	"net/http"
 )
 
@@ -22,7 +21,7 @@ func Cors(handler http.Handler) http.Handler {
 			w.WriteHeader(http.StatusNoContent)
 			return
 		}
-		global.AccessLog.Println("跨域")
+		//global.AccessLog.Println("跨域")
 		handler.ServeHTTP(w, r)
 	})
 }

@@ -1,22 +1,17 @@
-package utils
+package initial
 
 import (
 	"GoHttpServerBestPractice/global"
+	"GoHttpServerBestPractice/utils"
 	"fmt"
 	"log"
 	"os"
 )
 
-func DeleteLogFile(LogList []string) {
-	for _, item := range LogList {
-		if Exists(item) {
-			_ = os.Remove(item)
-		}
-	}
-}
-
 // 初始化自带的日志库
 func InitLog(LogPath []string) {
+	// 删除历史日志文件
+	deleteLogFile(LogPath)
 	for i, item := range LogPath {
 		logFile, err := os.OpenFile(item, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 		if err != nil {
@@ -46,6 +41,14 @@ func InitLog(LogPath []string) {
 			global.TaskLog.Println("*****************************************************************************************")
 			global.TaskLog.Println("后台任务日志记录")
 			global.TaskLog.Println("*****************************************************************************************")
+		}
+	}
+}
+
+func deleteLogFile(LogList []string) {
+	for _, item := range LogList {
+		if utils.Exists(item) {
+			_ = os.Remove(item)
 		}
 	}
 }

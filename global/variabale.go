@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/jmoiron/sqlx"
+
 	"github.com/go-playground/validator/v10"
 )
 
@@ -18,6 +20,8 @@ import (
 
 var (
 	Config    ServerConfig
+	RDB       *sqlx.DB
+	WDB       *sqlx.DB
 	AccessLog *log.Logger
 	SqlLog    *log.Logger
 	TaskLog   *log.Logger

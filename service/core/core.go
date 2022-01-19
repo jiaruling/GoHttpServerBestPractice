@@ -2,7 +2,6 @@ package core
 
 import (
 	"GoHttpServerBestPractice/global"
-	"log"
 	"net/http"
 	"strconv"
 )
@@ -172,7 +171,7 @@ func (m Model) ListViewAPI(w http.ResponseWriter, r *http.Request) {
 	}
 	// 查询记录总数
 	sqlTotal := GenGetTotalSQL(m.Table, condition, m.DeletedFields, all)
-	log.Println(sqlTotal)
+	global.SqlLog.Println(sqlTotal)
 	total := getTotalDB(sqlTotal)
 	// 3. 返回结果
 	Handler200(w, map[string]interface{}{

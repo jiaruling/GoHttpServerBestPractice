@@ -21,5 +21,4 @@ type Mysql struct {
 	Port      int    `mapstructure:"port"`
 	Db        string `mapstructure:"db"`
 	Parameter string `mapstructure:"parameter"`
-	DbAccount string `mapstructure:"dbaccount"`
 }
