@@ -1,6 +1,6 @@
 package model
 
-import "GoHttpServerBestPractice/service/core"
+import "GoHttpServerBestPractice/service/grf"
 
 /*
    功能说明:
@@ -18,27 +18,27 @@ type Student struct {
 	DeletedAt int64  `json:"deleted_at,omitempty" db:"deleted_at"`
 }
 
-var Stu = core.Model{
+var Stu = grf.Model{
 	M:     nil, // M: new(Student) 传入模型的结构体指针
 	Table: "student",
-	CreateField: core.CreateField{
+	CreateField: grf.CreateField{
 		CreatedFields:        nil,
 		CreatedIgnoreFields:  []string{"deleted_at"},
 		CreatedSetTimeFields: []string{"created_at", "updated_at"},
 	},
-	SoftDeleteField: core.SoftDeleteField{
+	SoftDeleteField: grf.SoftDeleteField{
 		DeletedFields: "deleted_at",
 	},
-	UpdateField: core.UpdateField{
+	UpdateField: grf.UpdateField{
 		UpdateFields:        nil,
 		UpdateIgnoreFields:  []string{"created_at", "deleted_at"},
 		UpdateSetTimeFields: []string{"updated_at"},
 	},
-	SelectField: core.SelectField{
+	SelectField: grf.SelectField{
 		SelectFields:       nil,
 		SelectIgnoreFields: []string{"deleted_at"},
 	},
-	SelectFieldList: core.SelectFieldList{
+	SelectFieldList: grf.SelectFieldList{
 		Search:  []string{"name", "age"},
 		Filter:  nil,
 		Sort:    []string{"id"},

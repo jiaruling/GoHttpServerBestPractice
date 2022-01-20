@@ -3,7 +3,7 @@ package controller
 import (
 	"GoHttpServerBestPractice/global"
 	"GoHttpServerBestPractice/global/errInfo"
-	"GoHttpServerBestPractice/service/core"
+	"GoHttpServerBestPractice/service/grf"
 	"GoHttpServerBestPractice/utils"
 	"fmt"
 	"io/ioutil"
@@ -21,39 +21,39 @@ import (
 */
 
 func HealthHandler(w http.ResponseWriter, r *http.Request) {
-	core.Handler200(w, nil)
+	grf.Handler200(w, nil)
 	return
 }
 
 func TestHandler(w http.ResponseWriter, r *http.Request) {
-	core.Handler200(w, "test")
+	grf.Handler200(w, "test")
 	return
 }
 
 func UploadFile(w http.ResponseWriter, r *http.Request) {
 	// 判断请求方式
 	if r.Method != global.METHOD_POST {
-		core.Handler400(w, errInfo.RequestNotAllow, nil)
+		grf.Handler400(w, errInfo.RequestNotAllow, nil)
 		return
 	}
 	// 验证文件大小
 	r.Body = http.MaxBytesReader(w, r.Body, global.MaxUploadSize)
 	if err := r.ParseMultipartForm(global.MaxUploadSize); err != nil {
-		core.Handler400(w, errInfo.FileIsTooBig, nil)
+		grf.Handler400(w, errInfo.FileIsTooBig, nil)
 		return
 	}
 
 	// 获取文件名和文件内容
 	file, fileHandle, err := r.FormFile("file")
 	if err != nil {
-		core.Handler400(w, errInfo.FileGetFailed, nil)
+		grf.Handler400(w, errInfo.FileGetFailed, nil)
 		return
 	}
 	defer func() { _ = file.Close() }()
 	filePath, fileName := generateFileName(fileHandle.Filename)
 	fileBytes, err := ioutil.ReadAll(file)
 	if err != nil {
-		core.Handler500(w, errInfo.FileReadFailed)
+		grf.Handler500(w, errInfo.FileReadFailed)
 		return
 	}
 	//fmt.Println(filePath, fileName)
@@ -64,16 +64,16 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 	// 将数据写入文件
 	newFile, err := os.Create(filePath)
 	if err != nil {
-		core.Handler500(w, errInfo.FileCreateFailed)
+		grf.Handler500(w, errInfo.FileCreateFailed)
 		return
 	}
 	defer func() { _ = newFile.Close() }()
 	if _, err = newFile.Write(fileBytes); err != nil {
-		core.Handler500(w, errInfo.FileWriteFailed)
+		grf.Handler500(w, errInfo.FileWriteFailed)
 		return
 	}
 	// 成功返回
-	core.Handler201(w, map[string]string{
+	grf.Handler201(w, map[string]string{
 		"filename": fileName,
 	})
 	return

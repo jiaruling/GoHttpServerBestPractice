@@ -2,7 +2,7 @@ package controller
 
 import (
 	"GoHttpServerBestPractice/service/api/user/model"
-	"GoHttpServerBestPractice/service/core"
+	"GoHttpServerBestPractice/service/grf"
 	"net/http"
 )
 
@@ -17,6 +17,6 @@ func StuHandler(w http.ResponseWriter, r *http.Request) {
 	// 通过全局变量赋值给局部变量，可以实现并发
 	s := model.Stu
 	s.M = new(model.Student)
-	core.Dispatcher(s, w, r)
+	grf.Dispatcher(s, w, r)
 	return
 }

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"GoHttpServerBestPractice/service/core"
+	"GoHttpServerBestPractice/service/grf"
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -22,8 +22,8 @@ func init() {
 		return
 	}
 	//defer database.Close()  // 注意这行代码要写在上面err判断的下面
-	core.RDB = database
-	core.WDB = database
-	core.GlobalPageMax = 5
-	core.GlobalPageMin = 1
+	grf.RDB = database
+	grf.WDB = database
+	grf.GlobalPageMax = 5
+	grf.GlobalPageMin = 1
 }
