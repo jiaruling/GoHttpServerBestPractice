@@ -8,10 +8,12 @@ package config_struct
 */
 
 type ServerConfig struct {
-	Name    string `mapstructure:"name"`
-	Env     string `mapstructure:"env"`
-	RunMode string `mapstructure:"runMode"`
-	MySQL   Mysql  `mapstructure:"mysql"`
+	Name                 string `mapstructure:"name"`
+	Env                  string `mapstructure:"env"`
+	RunMode              string `mapstructure:"runMode"`
+	RunPort              string `mapstructure:"runPort"`
+	StaticServiceRunPort string `mapstructure:"staticServiceRunPort"`
+	MySQL                Mysql  `mapstructure:"mysql"`
 }
 
 type Mysql struct {

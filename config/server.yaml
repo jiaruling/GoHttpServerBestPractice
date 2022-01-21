@@ -1,6 +1,8 @@
 name: "go http 标准库最佳实践"
 env: "dev"
 runMode: "debug"
+runPort: 8089
+staticServiceRunPort: 8081
 mysql:
   user: "root"
   password: "abc123456"
